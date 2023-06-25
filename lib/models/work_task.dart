@@ -12,6 +12,8 @@ class WorkScreen extends StatefulWidget {
 }
 
 class _WorkScreenState extends State<WorkScreen> {
+  //when loading should show something
+  bool isLoading = true;
   List items = [];
 
   void initState() {
@@ -26,21 +28,47 @@ class _WorkScreenState extends State<WorkScreen> {
     return Scaffold(
       backgroundColor: Colors.deepPurple.shade200,
       // here after calling API n storing it displaying it by List View
-      body: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            final item =
-                items[index] as Map; //here as we know each TO DO ITEM is a MAP
-            return ListTile(
-              leading: CircleAvatar(
-                  child: Text(
-                      '${index + 1}')), //for countin & giving idea of how many elements
-              title:
-                  Text(item['title']), //cos of this here sampleText can be seen
-              subtitle: Text(item['description']),
-            );
-            // as its infinite data that comes hv to git length so itemCount
-          }),
+
+      //here after making List n all to refreshe need to call RefreshIndicator so wrapping List view code into RefreshIndicator
+      // so onRefresh updates List as fetchToDo method called
+      body: Visibility(
+        visible: isLoading,
+        child: Center(child: CircularProgressIndicator()),
+        replacement: RefreshIndicator(
+          onRefresh: fetchToDo,
+          child: ListView.builder(
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                final item = items[index]
+                    as Map; //here as we know each TO DO ITEM is a MAP
+                return ListTile(
+                  leading: CircleAvatar(
+                      child: Text(
+                          '${index + 1}')), //for countin & giving idea of how many elements
+                  title: Text(
+                      item['title']), //cos of this here sampleText can be seen
+                  subtitle: Text(item['description']),
+                  trailing: PopupMenuButton(
+                    itemBuilder: (context) {
+                      return [
+                        // here each pop menu item takes a value which helps us realize which button was clicked
+                        PopupMenuItem(
+                          child: Text(
+                              'Edit'), //will then show up the given method to perform
+                          value: 'edit',
+                        ),
+                        PopupMenuItem(
+                          child: Text('Delete'),
+                          value: 'delete',
+                        ),
+                      ];
+                    },
+                  ),
+                );
+                // as its infinite data that comes hv to git length so itemCount
+              }),
+        ),
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: navigateToAddPage,
         label: Text('Add Todo'),
@@ -70,8 +98,9 @@ class _WorkScreenState extends State<WorkScreen> {
       setState(() {
         items = result; // declared at top items
       });
-    } else {
-      // show error
     }
+    setState(() {
+      isLoading = false;
+    });
   }
 }
