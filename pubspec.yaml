@@ -15,14 +15,19 @@ version: 1.0.0+1
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
+  #disables the no safety feature of flutter when adding this version 2.7.0
 
 dependencies:
   flutter:
     sdk: flutter
+  hidden_drawer_menu: ^3.0.1
+              
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  http: ^0.13.1        #placing here the version of http from pub.dev package http ; as using http submiting data to the sever
+  #Adds http package to the dependencies 
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

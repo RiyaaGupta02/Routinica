@@ -11,59 +11,61 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        //so scaffold will have some body section here
-        backgroundColor: Color(0xffe8dbf6),
-        //here body that'll hv container in it a lot of child that'll hv columns n rows within child its children
-        body: Container(
+      //so scaffold will have some body section here
+      backgroundColor: const Color(0xffe8dbf6),
+      //here body that'll hv container in it a lot of child that'll hv columns n rows within child its children
+      body: Container(
           padding: const EdgeInsets.only(
             //here its for styling the text & arranging of it
-            top: 50,
+            top: 25,
             left: 20,
             right: 20,
           ),
           child: Column(
             children: [
               //first major Heading i.e. for Routininca
+
               Row(
                 children: [
-                  Text(
-                    "ROUTINICA",
+                  const Text(
+                    "CHOOSE TASK",
                     style: TextStyle(
                         fontSize: 30,
                         color: Color(0xff4a063e),
                         fontWeight: FontWeight.w700),
                   ),
+
                   Expanded(child: Container()),
                   //here just by writing this container in child it adjust the spacing of 3 icons along with Routinica --> this spacing adjusted is btwn Text given n icons not in btwn icon spacing
-                  Icon(Icons.arrow_back_ios,
+                  const Icon(Icons.arrow_back_ios,
                       size: 20, color: Color(0xff4a063e)),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
-                  Icon(
+                  const Icon(
                     Icons.calendar_today_outlined,
                     size: 20,
                     color: Color(0xff4a063e),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
-                  Icon(Icons.arrow_forward_ios,
+                  const Icon(Icons.arrow_forward_ios,
                       size: 20, color: Color(0xff4a063e)),
-                  SizedBox(
+                  const SizedBox(
                     width: 9,
                   ),
                   //so here then placing all the icons along with the Routininca now we need to give spacing accordingly cos this just places them with name give with it
                 ], //this whole is one children Routinica n icons
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
 
               //comes the other row Sub-Heading
               Row(
                 children: [
-                  Text(
+                  const Text(
                     "Your Tasks",
                     style: TextStyle(
                         fontSize: 20,
@@ -75,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                       child:
                           Container()), //whenerver use expanded takes available space btwn 2 widgets
-                  Text(
+                  const Text(
                     "Details",
                     style: TextStyle(
                       fontSize: 20,
@@ -83,17 +85,17 @@ class _HomePageState extends State<HomePage> {
                           0xff934084), //for the other heading say sub-heading
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
-                  Icon(
+                  const Icon(
                     Icons.arrow_forward,
                     size: 20,
                     color: Color(0xff4a063e),
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 //so sizedBox is basically for giving space btwn containers n elements
                 height: 20,
               ),
@@ -105,12 +107,12 @@ class _HomePageState extends State<HomePage> {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Color(0xff410862).withOpacity(0.9),
-                        Color(0xff662896).withOpacity(0.9),
-                        Color(0xff9e6ace).withOpacity(0.9),
+                        const Color(0xff410862).withOpacity(0.9),
+                        const Color(0xff662896).withOpacity(0.9),
+                        const Color(0xff9e6ace).withOpacity(0.9),
                       ],
                     ),
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10),
                         bottomLeft: Radius.circular(10),
                         bottomRight: Radius.circular(10),
@@ -121,9 +123,9 @@ class _HomePageState extends State<HomePage> {
                     boxShadow: [
                       //the shadow i.e. there after the Box is made
                       BoxShadow(
-                          offset: Offset(10, 10),
+                          offset: const Offset(10, 10),
                           blurRadius: 15,
-                          color: Color(0xff68289a).withOpacity(0.2))
+                          color: const Color(0xff68289a).withOpacity(0.2))
                     ]),
                 //container under which writing cols carrying txt of the gradient box
                 child: Container(
@@ -136,44 +138,44 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment
                         .start, //styling the text by adjusting it
                     children: [
-                      Text(
+                      const Text(
                         "Upcoming Tasks",
                         style:
                             TextStyle(fontSize: 15, color: Color(0xffe2d6ed)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
-                      Text(
+                      const Text(
                         "Upcoming Budget meeting",
                         style:
                             TextStyle(fontSize: 26, color: Color(0xffe2d6ed)),
                       ),
                       //Now comes the icons n small symbol in box they r in row
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Row(
                         children: [
                           Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.timer,
                                 size: 25,
                                 color: Color(0xffe8ddf5),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
-                              Text(
+                              const Text(
                                 "45 min",
                                 style: TextStyle(
                                     fontSize: 15, color: Color(0xffe2d6ed)),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 120,
                               ),
-                              Icon(
+                              const Icon(
                                 //the playfill icon for playing the timer
                                 Icons.play_circle_fill,
                                 color: Color(0xffe8ddf5),
@@ -187,46 +189,70 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              // giving here the title in a Row i.e  a Title --> text
-              Row(
-                children: [
-                  Text(
-                    " Area of Interest ",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff690a58)),
-                  ),
-                  Expanded(
-                    child: ListView.builder(
-                      itemBuilder: (_, i) {
-                        return Row(
-                          children: [
-                            Container(
-                              width: 200,
-                              height: 170,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                image: DecorationImage(
-                                  image:
-                                      AssetImage("assets/images/ChillMe.png"),
-                                ),
-                              ),
-                            )
-                          ],
-                        );
-                      },
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    /*
+                    const Text(
+                      "Area of Interest",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff511a7b),
+                          fontSize: 20),
                     ),
-                  ),
-                ],
-              )
-              //bar that shows options we have
+                    */
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 175,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    makeItem(image: 'assets/images/Work.png', title: 'Work'),
+                    makeItem(
+                        image: 'assets/images/ChillMe.png',
+                        title: 'Relaxed Time'),
+                    makeItem(
+                        image: 'assets/images/Health.jpg', title: 'Health'),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
             ],
-          ),
-        ));
+          )),
+    );
   }
+}
+
+Widget makeItem({image, title}) {
+  return AspectRatio(
+    aspectRatio: 1 / 1,
+    child: Container(
+      margin: const EdgeInsets.only(right: 15),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Text(
+          title,
+          style: const TextStyle(
+              color: Color(0xff690a58),
+              fontSize: 20,
+              fontWeight: FontWeight.bold),
+        ),
+      ),
+    ),
+  );
 }
