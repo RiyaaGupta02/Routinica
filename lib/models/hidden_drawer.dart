@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 import 'package:routinica/home_page.dart';
+import 'package:routinica/models/PersonalizedTime.dart';
 import 'package:routinica/models/work_task.dart';
+import 'Healthy_Food.dart';
 
 class HiddenDrawer extends StatefulWidget {
   const HiddenDrawer({Key? key}) : super(key: key);
@@ -23,6 +25,12 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
   void initState() {
     super.initState();
 
+    var itemHiddenMenu = ItemHiddenMenu(
+      name: "Work",
+      baseStyle: myTextStyle,
+      selectedStyle: myTextStyle,
+      colorLineSelected: Colors.deepPurple,
+    );
     _pages = [
       ScreenHiddenDrawer(
         ItemHiddenMenu(
@@ -36,13 +44,26 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
       ),
       // now here same way can write multiple sections & go to that particular page like here to the WorkScreen pg
       ScreenHiddenDrawer(
+        itemHiddenMenu,
+        WorkScreen(),
+      ),
+      ScreenHiddenDrawer(
         ItemHiddenMenu(
-          name: "Work",
+          name: "HealthyRecipes",
           baseStyle: myTextStyle,
           selectedStyle: myTextStyle,
           colorLineSelected: Colors.deepPurple,
         ),
-        WorkScreen(),
+        HealthyRecipes(),
+      ),
+      ScreenHiddenDrawer(
+        ItemHiddenMenu(
+          name: "ChillZone",
+          baseStyle: myTextStyle,
+          selectedStyle: myTextStyle,
+          colorLineSelected: Colors.deepPurple,
+        ),
+        SongPage(),
       ),
     ];
   }

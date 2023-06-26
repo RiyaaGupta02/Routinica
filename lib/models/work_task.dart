@@ -41,6 +41,8 @@ class _WorkScreenState extends State<WorkScreen> {
               itemBuilder: (context, index) {
                 final item = items[index]
                     as Map; //here as we know each TO DO ITEM is a MAP
+                final id = item['_id']
+                    as String; //as id being returened by API as_id and in form of String
                 return ListTile(
                   leading: CircleAvatar(
                       child: Text(
@@ -49,6 +51,15 @@ class _WorkScreenState extends State<WorkScreen> {
                       item['title']), //cos of this here sampleText can be seen
                   subtitle: Text(item['description']),
                   trailing: PopupMenuButton(
+                    onSelected: (value) {
+                      if (value == 'edit') {
+                        navigateToEditPage();
+                        //open edit page
+                      } else if (value == 'delete') {
+                        //delete & remove the item
+                        deleteById(id);
+                      }
+                    },
                     itemBuilder: (context) {
                       return [
                         // here each pop menu item takes a value which helps us realize which button was clicked
@@ -76,11 +87,39 @@ class _WorkScreenState extends State<WorkScreen> {
     );
   }
 
+  void navigateToEditPage() {
+    final route = MaterialPageRoute(
+      builder: (context) => AddToDo(),
+    );
+    Navigator.push(context, route);
+  }
+
   void navigateToAddPage() {
     final route = MaterialPageRoute(
       builder: (context) => AddToDo(),
     );
     Navigator.push(context, route);
+  }
+
+  Future<void> deleteById(String id) async {
+    //1.  delete the item from the list ke liye --> API call
+    // to delete we need some id getting it from the API so fetchToDo final url take n search will get id put it in delete one n execute will see its executed that shows its done
+    // from there take request url
+    final url =
+        'https://api.nstack.in/v1/todos/$id'; //change the no last part of url to $id as itd id of to do which we want to delete
+    final uri = Uri.parse(url);
+    final response = await http
+        .delete(uri); //can ignore header here as optional so won't write
+    if (response.statusCode == 200) {
+      //remove item from the list
+      final filtered = items.where((element) => element['_id'] != id).toList();
+      setState(() {
+        items = filtered;
+      });
+    } else {
+      //show error
+      // showFailureMessage('Deletion failed');
+    }
   }
 
 // here comes API GET ALL i.e getting all data i.e there in device on server
@@ -103,4 +142,16 @@ class _WorkScreenState extends State<WorkScreen> {
       isLoading = false;
     });
   }
+
+  // void showFailureMessage(String message) {
+  //   final snackBar = SnackBar(
+  //     content: Text(
+  //       message,
+  //       style: TextStyle(color: Colors.white),
+  //     ),
+  //     backgroundColor: Colors
+  //         .red, //so whenever it will fail will come in red box failed message
+  //   );
+  //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  // }
 }

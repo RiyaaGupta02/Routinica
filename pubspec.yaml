@@ -21,6 +21,8 @@ dependencies:
   flutter:
     sdk: flutter
   hidden_drawer_menu: ^3.0.1
+  cupertino_icons: ^1.0.2
+  percent_indicator: ^3.4.0
               
 
 dev_dependencies:
