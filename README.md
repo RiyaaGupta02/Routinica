@@ -22,13 +22,12 @@ Building this project also involves working with REST CRUD API's.
  
 ## App Preview
 
-Home screen
 ![image](https://github.com/RiyaaGupta02/Routinica/assets/98845311/75908434-c491-4dac-92b5-74504a6aa3b5)
 
-to do 
+ 
 ![image](https://github.com/RiyaaGupta02/Routinica/assets/98845311/29ffae3a-3ed2-4f16-9332-a071fb32c743)
 
-recipes & chill zone - music feature
+
 ![image](https://github.com/RiyaaGupta02/Routinica/assets/98845311/5465f718-55f0-4450-98cd-06bf686f2b60)
 
 
