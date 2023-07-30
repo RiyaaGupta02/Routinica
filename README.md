@@ -21,16 +21,8 @@ Building this project also involves working with REST CRUD API's.
     - Focus sessions, etc.
  
 ## App Preview
-![image](https://github.com/RiyaaGupta02/Routinica/assets/98845311/12be4b19-3358-4d9f-8d88-109301f22a36)
-![image](https://github.com/RiyaaGupta02/Routinica/assets/98845311/17004633-8b88-4236-8750-a7308145104f)
-To- Do feature
-![image](https://github.com/RiyaaGupta02/Routinica/assets/98845311/09bbff81-2ded-46e1-b56e-472fa046b188)
-![image](https://github.com/RiyaaGupta02/Routinica/assets/98845311/c06ed2be-2571-4f30-8a19-6d2b1ab00cdb)
-Recipes
-![image](https://github.com/RiyaaGupta02/Routinica/assets/98845311/5b029d98-e18f-4f6a-a621-356fac615993)
+![image](https://github.com/RiyaaGupta02/Routinica/assets/98845311/75908434-c491-4dac-92b5-74504a6aa3b5)
 
-Chill- ZOne (music feature)
-![image](https://github.com/RiyaaGupta02/Routinica/assets/98845311/1f8a3db5-0414-4d2e-af47-aa832653899f)
 
 
 
